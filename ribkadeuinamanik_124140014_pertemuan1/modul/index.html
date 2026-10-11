@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Latihan Modul JavaScript</title>
+  <style>
+    body { 
+      font-family: Arial, sans-serif; 
+      margin: 20px; 
+      transition: background 0.3s, color 0.3s; 
+    }
+    .dark-mode { 
+      background-color: #1e1e1e; 
+      color: #ffffff; 
+    }
+    .dark-mode input, .dark-mode button { 
+      background-color: #333; 
+      color: #fff; 
+      border-color: #555; 
+    }
+    .card { 
+      border: 1px solid #ccc; 
+      padding: 15px; 
+      margin-bottom: 20px; 
+      border-radius: 6px; 
+    }
+    table { 
+      width: 100%; 
+      border-collapse: collapse; 
+      margin-top: 15px; 
+    }
+    th, td { 
+      border: 1px solid #ccc; 
+      padding: 8px 12px; 
+      text-align: left; 
+    }
+    th { 
+      background-color: #f2f2f2; 
+    }
+    .dark-mode th { 
+      background-color: #444; 
+    }
+    .completed { 
+      text-decoration: line-through; 
+      color: gray; 
+    }
+    ul { 
+      list-style: none; 
+      padding: 0; 
+    }
+    li { 
+      display: flex; 
+      justify-content: space-between; 
+      padding: 8px 0; 
+      border-bottom: 1px solid #eee; 
+    }
+    .post-item { 
+      background: #f4f4f4; 
+      padding: 10px; 
+      margin: 8px 0; 
+      border-radius: 4px; 
+    }
+    .dark-mode .post-item { 
+      background: #2d2d2d; 
+    }
+    .btn-edit { background-color: #ffc107; border: none; padding: 4px 8px; cursor: pointer; }
+    .btn-delete { background-color: #dc3545; color: white; border: none; padding: 4px 8px; cursor: pointer; }
+  </style>
+</head>
+<body>
+
+  <h1>Latihan Modul Praktikum JavaScript</h1>
+  
+  <!-- Fitur Dark Mode Toggle -->
+  <button id="btn-dark-mode">Toggle Dark Mode</button>
+  <hr>
+
+  <!-- Output Log untuk Bab 1 & Bab 2 -->
+  <div id="result"></div>
+
+  <!-- BAB 3: Data Mahasiswa & CRUD (Tabel 5 Mahasiswa Awal) -->
+  <div class="card">
+    <h2>BAB 3: Data Mahasiswa (Array, Objek & CRUD)</h2>
+    
+    <form id="form-mahasiswa" style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 10px;">
+      <input type="hidden" id="edit-index" value="-1">
+      <input type="text" id="input-nama" placeholder="Nama Mahasiswa" required>
+      <input type="text" id="input-nim" placeholder="NIM" required>
+      <input type="text" id="input-jurusan" placeholder="Jurusan" required>
+      <input type="number" id="input-nilai" placeholder="Nilai (0-100)" min="0" max="100" required>
+      <button type="submit" id="btn-submit">Tambah Mahasiswa</button>
+    </form>
+
+    <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+      <button id="btn-tertinggi">Cari Nilai Tertinggi</button>
+      <button id="btn-diatas-ratarata">Nilai > Rata-rata</button>
+      <button id="btn-sort-asc">Urutkan A-Z</button>
+      <button id="btn-sort-desc">Urutkan Z-A</button>
+      <button id="btn-reset-view">Tampilkan Semua</button>
+    </div>
+
+    <div id="info-output" style="margin-top: 10px; font-weight: bold; color: #0d6efd;"></div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>No</th>
+          <th>NIM</th>
+          <th>Nama</th>
+          <th>Jurusan</th>
+          <th>Nilai</th>
+          <th>Aksi</th>
+        </tr>
+      </thead>
+      <tbody id="mhs-tbody">
+        <!-- 5 Data Mahasiswa dari 03_array_objek.js akan otomatis dimasukkan ke sini oleh JavaScript -->
+      </tbody>
+    </table>
+  </div>
+
+  <!-- BAB 4: Form Input Terpisah + LocalStorage -->
+  <div class="card">
+    <h2>BAB 4: Form Validasi & LocalStorage</h2>
+    <form id="form-mhs" style="display: flex; gap: 8px; margin-bottom: 10px;">
+      <input type="text" id="mhs-nama" placeholder="Nama Mahasiswa">
+      <input type="text" id="mhs-nim" placeholder="NIM">
+      <button type="submit">Simpan ke LocalStorage</button>
+    </form>
+    <small id="error-mhs" style="color: red; display: block; margin-bottom: 8px;"></small>
+    <ul id="list-mhs"></ul>
+  </div>
+
+  <!-- BAB 4: Todo List App -->
+  <div class="card">
+    <h2>Aplikasi Todo List</h2>
+    <form id="form-todo" style="display: flex; gap: 8px; margin-bottom: 10px;">
+      <input type="text" id="todo-input" placeholder="Tambah tugas baru...">
+      <button type="submit">Tambah</button>
+    </form>
+    <ul id="todo-list"></ul>
+  </div>
+
+  <!-- BAB 4: Fetch API Posts -->
+  <div class="card">
+    <h2>Fetch API Posts (Search & Pagination)</h2>
+    <input type="text" id="search-post" placeholder="Cari postingan berdasarkan judul..." style="width: 100%; padding: 8px; margin-bottom: 10px;">
+    <div id="posts-container"></div>
+    <div style="margin-top: 10px; display: flex; align-items: center; gap: 10px;">
+      <button id="btn-prev">Previous</button>
+      <span id="page-info">Halaman 1</span>
+      <button id="btn-next">Next</button>
+    </div>
+  </div>
+  
+  <!--Menghubungkan semua file js-->
+  <script src="01_variabel_kondisional.js"></script>
+  <script src="02_loop_fungsi.js"></script>
+  <script src="03_array_objek.js"></script>
+  <script src="04_dom_api.js"></script>
+</body>
+</html>
