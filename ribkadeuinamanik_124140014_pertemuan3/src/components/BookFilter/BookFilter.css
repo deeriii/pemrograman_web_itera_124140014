@@ -1,0 +1,39 @@
+.book-filter {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+@media (min-width: 640px) {
+  .book-filter {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+.search-input {
+  padding: 0.65rem 1rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  flex: 1;
+  font-size: 0.95rem;
+}
+.filter-buttons {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+.filter-buttons button {
+  background: white;
+  border: 1px solid #cbd5e1;
+  padding: 0.5rem 0.85rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  color: #475569;
+}
+.filter-buttons button.active {
+  background-color: #a3487a;
+  color: white;
+  border-color: #a3487a;
+}

@@ -1,0 +1,16 @@
+.page-content {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+.page-header {
+  margin-bottom: 1.5rem;
+}
+.page-header h2 {
+  color: #0f172a;
+  margin-bottom: 0.25rem;
+}
+.page-header p {
+  color: #64748b;
+  margin: 0;
+}
