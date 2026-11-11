@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Student Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-pink-50/50 text-gray-700 font-sans min-h-screen p-4 md:p-8">
+    <div class="max-w-4xl mx-auto space-y-6">
+        
+        <!-- Header Sederhana -->
+        <header class="bg-white p-5 rounded-2xl border border-pink-100 shadow-sm flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+            <div>
+                <h1 class="text-2xl font-bold text-pink-600">Catatan & Agenda</h1>
+                <p id="quote-container" class="text-xs text-gray-400 mt-1 italic">"Memuat motivasi..."</p>
+            </div>
+            <div id="weather-widget" class="bg-pink-50 px-3 py-2 rounded-xl border border-pink-100 text-right text-xs text-pink-600">
+                <span>Memuat cuaca...</span>
+            </div>
+        </header>
+
+        <!-- Layout Utama 2 Kolom -->
+        <main class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            
+            <!-- Kolom Kiri: Form & Ringkasan -->
+            <section class="space-y-4">
+                <div class="bg-white p-5 rounded-2xl border border-pink-100 shadow-sm">
+                    <h2 class="text-sm font-bold text-gray-800 mb-3" id="form-title">Tambah Kegiatan</h2>
+                    <form id="task-form" class="space-y-3">
+                        <input type="hidden" id="task-id">
+                        <div>
+                            <input type="text" id="task-title" required placeholder="Judul kegiatan..." class="w-full px-3 py-2 border border-pink-200 rounded-xl text-xs focus:outline-none focus:ring-1 focus:ring-pink-400">
+                        </div>
+                        <div>
+                            <select id="task-category" class="w-full px-3 py-2 border border-pink-200 rounded-xl text-xs focus:outline-none focus:ring-1 focus:ring-pink-400 text-gray-600">
+                                <option value="Kuliah">Kuliah</option>
+                                <option value="Tugas">Tugas</option>
+                                <option value="Catatan">Catatan</option>
+                                <option value="Organisasi">Organisasi</option>
+                            </select>
+                        </div>
+                        <div>
+                            <input type="text" id="task-detail" placeholder="Keterangan singkat..." class="w-full px-3 py-2 border border-pink-200 rounded-xl text-xs focus:outline-none focus:ring-1 focus:ring-pink-400">
+                        </div>
+                        <div class="flex gap-2 pt-1">
+                            <button type="submit" id="submit-btn" class="flex-1 bg-pink-500 hover:bg-pink-600 text-white font-medium py-2 rounded-xl text-xs transition">
+                                Simpan
+                            </button>
+                            <button type="button" id="cancel-btn" class="hidden bg-gray-200 hover:bg-gray-300 text-gray-600 font-medium px-3 py-2 rounded-xl text-xs transition">
+                                Batal
+                            </button>
+                        </div>
+                        <div>
+                            <label for="task-deadline" class="block text-[10px] text-gray-400 mb-1 ml-1">Tenggat (opsional)</label>
+                            <input type="date" id="task-deadline" class="w-full px-3 py-2 border border-pink-200 rounded-xl text-xs text-gray-600 focus:outline-none focus:ring-1 focus:ring-pink-400">
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Ringkasan Singkat -->
+                <div class="bg-white p-4 rounded-2xl border border-pink-100 shadow-sm flex justify-around text-center">
+                    <div>
+                        <span class="block text-xl font-bold text-pink-500" id="stat-total">0</span>
+                        <span class="text-[10px] text-gray-400">Total</span>
+                    </div>
+                    <div class="border-r border-pink-100"></div>
+                    <div>
+                        <span class="block text-xl font-bold text-emerald-500" id="stat-completed">0</span>
+                        <span class="text-[10px] text-gray-400">Selesai</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Kolom Kanan: Daftar Catatan -->
+            <section class="md:col-span-2">
+                <div class="bg-white p-5 rounded-2xl border border-pink-100 shadow-sm space-y-4">
+                    <div class="flex justify-between items-center pb-2 border-b border-pink-50">
+                        <h2 class="text-sm font-bold text-gray-800">Daftar Agenda</h2>
+                        <select id="filter-category" class="px-2.5 py-1 border border-pink-200 rounded-lg text-xs text-gray-600 focus:outline-none">
+                            <option value="Semua">Semua Kategori</option>
+                            <option value="Kuliah">Kuliah</option>
+                            <option value="Tugas">Tugas</option>
+                            <option value="Catatan">Catatan</option>
+                            <option value="Organisasi">Organisasi</option>
+                        </select>
+                    </div>
+
+                    <div id="task-list" class="space-y-2">
+                        <!-- Task items di-render di sini -->
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>
