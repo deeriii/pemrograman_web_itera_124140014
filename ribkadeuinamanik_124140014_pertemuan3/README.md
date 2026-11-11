@@ -19,6 +19,13 @@ Aplikasi web Single Page Application (SPA) berbasis React untuk mengelola koleks
 5. **PropTypes:** Validasi tipe data props pada komponen `BookItem` dan `BookProvider`.
 6. **Unit Testing:** 5 unit test menggunakan Vitest & React Testing Library.
 
+## 🧪 Hasil Pengujian Unit Test
+
+![Halaman Beranda](./img/hal1.png)
+![Halaman Beranda](./img/hal1-1.png)
+![Halaman Statistik](./img/hal2.png)
+![Pengujian di terminal](./img/terminal.png)
+
 ## Jalankan Proyek
 
 ```bash
