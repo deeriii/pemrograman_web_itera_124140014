@@ -1,0 +1,14 @@
+# Cache kompilasi Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+venv/
+env/
+ENV/
+.venv/
+
+# Konfigurasi editor lokal
+.vscode/
+.idea/
