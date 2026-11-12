@@ -1,9 +1,8 @@
 # Praktikum Pemrograman Aplikasi Web - Pertemuan 4
 **Dasar-Dasar Pemrograman Python**
 
-## Identitas Mahasiswa
-* **Nama:** Ribka Deuina Manik
-* **NIM:** 124140014
+**Nama:** Ribka Deuina Manik
+**NIM:** 124140014
 
 ---
 
