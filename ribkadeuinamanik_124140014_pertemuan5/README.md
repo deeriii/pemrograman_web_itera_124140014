@@ -1,6 +1,5 @@
 # Sistem Manajemen Perpustakaan Sederhana (Python OOP)
 
-## Identitas Mahasiswa
 * **Nama:** Ribka Deuina Manik
 * **NIM:** 124140014
 * **Kelas:** RA
@@ -18,4 +17,4 @@ python main.py
 ```
 
 ## Screenshot Output
-![Output Program](/img/ft1.png)
+![Output Program](img/ft1.png)
