@@ -18,20 +18,28 @@ Proyek ini adalah aplikasi backend REST API sederhana menggunakan framework **Py
 
 ## Struktur Proyek
 ```text
-pyramid_mahasiswa/
-├── development.ini             # Konfigurasi server dan koneksi database PostgreSQL
-├── setup.py                    # Konfigurasi dependensi proyek
+ribkadeuinamanik_124140014_pertemuan6/
+├── img/                            # Screenshot hasil pengujian API
 └── pyramid_mahasiswa/
-    ├── __init__.py             # Inisialisasi aplikasi Pyramid
-    ├── routes.py               # Definisi URL endpoint API
-    ├── models/
-    │   ├── mahasiswa.py        # Model tabel mahasiswa
-    │   └── matakuliah.py       # Model tabel matakuliah
-    ├── views/
-    │   ├── mahasiswa.py        # Logika CRUD endpoint /api/mahasiswa
-    │   └── matakuliah.py       # Logika CRUD endpoint /api/matakuliah
-    └── scripts/
-        └── initialize_db.py    # Skrip inisialisasi data awal
+    ├── pyramid_mahasiswa/
+    │   ├── alembic/                # Skrip migrasi database
+    │   ├── models/                 # Model database (Mahasiswa & Matakuliah)
+    │   ├── scripts/
+    │   │   └── initialize_db.py    # Skrip inisialisasi data awal
+    │   ├── static/                 # Aset statis
+    │   ├── templates/              # Template tampilan
+    │   ├── views/                  # Logika CRUD endpoint API
+    │   ├── __init__.py             # Inisialisasi aplikasi Pyramid
+    │   ├── pshell.py               # Konfigurasi interactive shell
+    │   ├── routes.py               # Definisi URL endpoint API
+    │   └── tests.py                # Pengujian unit
+    ├── CHANGES.txt
+    ├── development.ini             # Konfigurasi server & database PostgreSQL
+    ├── MANIFEST.in
+    ├── production.ini
+    ├── pytest.ini
+    ├── README.md
+    └── setup.py                    # Konfigurasi dependensi proyek
 ```
 
 ---
